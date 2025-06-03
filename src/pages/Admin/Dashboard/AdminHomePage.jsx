@@ -144,7 +144,7 @@ const AdminHomePage = () => {
 
             </div>
 
-            <div className="bg-white w-[100%] p-5 rounded-xl mt-10 shadow-md">
+            {/* <div className="bg-white w-[100%] p-5 rounded-xl mt-10 shadow-md">
                 <h1 className="text-xl font-medium">Transaction Trends</h1>
                 <ResponsiveContainer width="100%" height={300} className="mt-10 -ml-5">
                     <BarChart data={transactionData}>
@@ -195,7 +195,7 @@ const AdminHomePage = () => {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
         </div>
     );
 };

@@ -22,8 +22,7 @@ const AdminUserPage = () => {
     const handleBlockUnblock = async (userId, block) => {
         const loader = toast.loading("Processing request...");
         try {
-            const endpoint = block ? 'block' : 'unblock';
-            await axios.put(`${config.baseUrl}/account/${endpoint}/${userId}`);
+            await axios.put(`${config.baseUrl}/account/block/${userId}`);
             toast.success(`User ${block ? 'blocked' : 'unblocked'}`);
             fetchUsers();
         } catch {
@@ -36,7 +35,7 @@ const AdminUserPage = () => {
     const handleToggleSellerMode = async (userId, currentStatus) => {
         const loader = toast.loading("Updating seller mode...");
         try {
-            await axios.put(`${config.baseUrl}/account/seller-mode/${userId}`, {
+            await axios.put(`${config.baseUrl}/account/switch/profile/${userId}`, {
                 sellerMode: !currentStatus
             });
             toast.success("Seller mode updated");
