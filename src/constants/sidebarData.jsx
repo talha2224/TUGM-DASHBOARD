@@ -1,18 +1,19 @@
-import { MdDashboard } from 'react-icons/md';
+import { MdDashboard, MdOutlineSyncAlt } from 'react-icons/md';
 import { LuUser } from "react-icons/lu";
-import { FaGift } from "react-icons/fa";
+import { FaClipboardList, FaGift } from "react-icons/fa";
 import { IoShirtSharp } from "react-icons/io5";
 import { HiGiftTop } from "react-icons/hi2";
+import { CgNotes } from "react-icons/cg";
 
 
 
 export const adminNav = [
-    {
-        id: 1,
-        link: "home",
-        name: "Home",
-        icon: <MdDashboard className='text-[#FFCC00]' />
-    },
+    // {
+    //     id: 1,
+    //     link: "home",
+    //     name: "Home",
+    //     icon: <MdDashboard className='text-[#FFCC00]' />
+    // },
     {
         id: 7,
         link: "user",
@@ -37,10 +38,22 @@ export const adminNav = [
         name: "Products Management",
         icon: <IoShirtSharp className="text-[#4465f5]" />
     },
-    // {
-    //     id: 4,
-    //     link: "transaction",
-    //     name: "Transaction",
-    //     icon: <MdOutlineSyncAlt className="text-[#34C759]" />
-    // }
+    {
+        id:11,
+        link: "ticket",
+        name: "Tickets Management",
+        icon: <FaClipboardList className="text-[#2ff8ff]" />
+    },
+    {
+        id: 4,
+        link: "transaction",
+        name: "Transaction History",
+        icon: <MdOutlineSyncAlt className="text-[#34C759]" />
+    },
+    {
+        id: 4,
+        link: "terms",
+        name: "Terms & Conditions",
+        icon: <CgNotes className="text-[#c73454]" />
+    },
 ]

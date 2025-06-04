@@ -12,6 +12,8 @@ import AdminUserPage from './pages/Admin/Dashboard/AdminUserPage';
 import Gift from './pages/Admin/Dashboard/Gift';
 import Products from './pages/Admin/Dashboard/Products';
 import Gifting from './pages/Admin/Dashboard/Gifting';
+import Ticket  from './pages/Admin/Dashboard/Ticket';
+import Terms from './pages/Admin/Dashboard/Terms';
 
 const RegisterPage = lazy(() => import('./pages/Auth/RegisterPage'));
 const AdminLayout = lazy(() => import('./components/admin/Layout'));
@@ -54,7 +56,9 @@ function App() {
               <Route path="gifts" element={<Gift />} />
               <Route path="gifting" element={<Gifting />} />
               <Route path="product" element={<Products />} />
+              <Route path="ticket" element={<Ticket />} />
               <Route path="transaction" element={<AdminTransactionage />} />
+              <Route path="terms" element={<Terms />} />
             </Route>
 
 

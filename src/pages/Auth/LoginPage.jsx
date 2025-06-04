@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import AuthImage from '../../assets/auth/auth.png';
 import Logo from '../../assets/logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import config from '../../config';
@@ -20,43 +19,47 @@ const LoginPage = () => {
         if (formData.email == "admin@tugm.com" && formData.password == "Admin@123") {
             toast.dismiss(loader)
             toast.success('Login successful!');
-            setTimeout(() => { nav("/admin/dashboard/home") }, 2000);
+            setTimeout(() => { nav("/admin/dashboard/user") }, 2000);
         }
         else {
-            try {
-                const response = await axios.post(`${config.baseUrl}/account/login`, formData);
-                if (response?.data) {
-                    toast.dismiss(loader)
-                    localStorage.setItem("uId", response?.data?.data?._id)
-                    toast.success('Login successful!');
-                    if (formData.email === "admin@ngoc.com") {
-                        setTimeout(() => { nav("/admin/dashboard/home") }, 2000);
-                    }
-                    else {
-                        setTimeout(() => { nav("/dashboard/home") }, 2000);
-                    }
-                }
-            }
-            catch (error) {
-                toast.dismiss(loader)
-                if (error.response) {
-                    if (error?.response?.data?.msg == "Account not verified Otp Has Been Sent To Your Email") {
-                        toast.error(error?.response?.data?.msg || 'Login failed. Please try again.');
-                        localStorage.setItem("uEmail", formData?.email)
-                        setTimeout(() => { nav("/verify") }, 2000);
-                    }
-                    else {
-                        toast.error(error?.response?.data?.msg || 'Login failed. Please try again.');
-                    }
-                }
-                else if (error.request) {
-                    toast.error('No response received from the server. Please try again.');
-                }
-                else {
-                    toast.error('An error occurred. Please try again.');
-                }
-            }
+            toast.dismiss(loader)
+            toast.error('Account not found!')
         }
+        // else {
+        //     try {
+        //         const response = await axios.post(`${config.baseUrl}/account/login`, formData);
+        //         if (response?.data) {
+        //             toast.dismiss(loader)
+        //             localStorage.setItem("uId", response?.data?.data?._id)
+        //             toast.success('Login successful!');
+        //             if (formData.email === "admin@ngoc.com") {
+        //                 setTimeout(() => { nav("/admin/dashboard/home") }, 2000);
+        //             }
+        //             else {
+        //                 setTimeout(() => { nav("/dashboard/home") }, 2000);
+        //             }
+        //         }
+        //     }
+        //     catch (error) {
+        //         toast.dismiss(loader)
+        //         if (error.response) {
+        //             if (error?.response?.data?.msg == "Account not verified Otp Has Been Sent To Your Email") {
+        //                 toast.error(error?.response?.data?.msg || 'Login failed. Please try again.');
+        //                 localStorage.setItem("uEmail", formData?.email)
+        //                 setTimeout(() => { nav("/verify") }, 2000);
+        //             }
+        //             else {
+        //                 toast.error(error?.response?.data?.msg || 'Login failed. Please try again.');
+        //             }
+        //         }
+        //         else if (error.request) {
+        //             toast.error('No response received from the server. Please try again.');
+        //         }
+        //         else {
+        //             toast.error('An error occurred. Please try again.');
+        //         }
+        //     }
+        // }
     };
     return (
         <div className='flex justify-center items-center w-screen h-screen'>
